@@ -1,6 +1,7 @@
 import {Creator} from '../../dist/nerdcreator';
 import {NdGet,NdSession} from '../../dist/nerdhttp';
 import {NdLink} from   '../../dist/nerdrouter';
+import {NdOrderBind} from '../../dist/nerdbinds';
 
 import Icon from './icon';
 import {MRow} from '../../components/m-row';
@@ -13,8 +14,11 @@ export class Home extends Creator{
     const userId=nds.get('userID');
     const ndGet=new NdGet(`http://localhost/ggnomotor/modules/privilegios/services/Lista.php?id=${userId}`);
 
-    const menu=ndGet.show();
-    console.log(userId);
+    const db=ndGet.show();
+    const menuDB=new NdOrderBind(db);
+
+    const menu=menuDB.filter('title');
+    
     if(menu===0){
         const login=document.createElement('nd-login');
 
@@ -26,30 +30,20 @@ export class Home extends Creator{
 
     return(
          
-        `
-            <m-row>
+        ` <m-row>
                 ${
                     menu.map((f)=>{
-                        return `<nd-link url='#'+${f.url} component=${f.component}><nd-icon title=${f.title} src=${f.icon}></nd-icon></nd-link>`
+                        return `<nd-icon title=${f.title} src=${f.icon} url="#${f.url}" component="${f.component}"></nd-icon>`
                         
 
                     }).join('')
                 }
 
-            <m-row>
-
-        `
+            <m-row> `       
     )
 
    }
-   callBack(){
-
-    
         
-
-   }
-
-       
     
 
 }

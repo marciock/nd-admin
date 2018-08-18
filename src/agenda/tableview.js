@@ -36,7 +36,7 @@ export class TbAgenda extends Creator{
                                     <td>${f.data.split('-').reverse().join('/')}</td>
                                     <td>${f.assunto}</td>
                                    
-                                    <td>${f.cidade}</td>
+                                    <td>${f.local}</td>
                                     <td>${f.hora_inicial}</td>
                                     <td>${f.hora_final}</td>
                                    

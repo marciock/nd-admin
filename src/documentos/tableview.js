@@ -2,11 +2,11 @@ import {Creator} from '../../dist/nerdcreator';
 import {NdGet} from '../../dist/nerdhttp';
 import {MRadio} from '../../components/m-forms';
 
-export class TbDoumentos extends Creator{
+export class TbDocumentos extends Creator{
 
     render(){
         const db=new NdGet('http://localhost/ggnomotor/modules/documentos/services/Lista.php');
-        const showDoumentos=db.show();
+        const show=db.show();
         
         return(
              `<div value=${this.getProps('value')}>
@@ -17,23 +17,24 @@ export class TbDoumentos extends Creator{
                             
                             <th>Data</th>
                             <th>Titulo</th>
-                            <th>Chave</th>
+                           
                             <th>Arquivo</th>
                         </tr>
                     </thead>
                     <tbody>
-                    ${
-                        
-                            showDoumentos.map((f)=>{
+                    
+                        ${
+                                                
+                            show.map((f)=>{
                                 
 
                                 
                                 return(
                                     `<tr>
-                                        <td><m-radio  group="documentos" value="${f.id_documentoss}">id</m-radio></td>
+                                        <td><m-radio  group="documentos" value="${f.id_documentos}">id</m-radio></td>
                                         <td>${f.titulo}</td>
                                         <td>${f.data.split('-').reverse().join('/')}</td>
-                                        <td>${f.chave}</td>
+                                       
                                         
                                         
                                         <td><a href="${f.arquivo}" >Visualizar</a></td>
@@ -42,8 +43,10 @@ export class TbDoumentos extends Creator{
                                     `
                                 )
                             }).join('')
-                     
-                    }
+
+                        }
+
+
                         
                     </tbody>
 
@@ -64,4 +67,5 @@ export class TbDoumentos extends Creator{
     }
 
 }
-customElements.define('tb-documentos',TbDoumentos);
+customElements.define('tb-documentos',TbDocumentos);
+

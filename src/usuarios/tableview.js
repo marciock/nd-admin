@@ -14,7 +14,7 @@ export class TbUsuarios extends Creator{
         
 
         return(
-             `<div>
+             `<div value="${this.getProps('value')}">
                 <table class="highlight" >
                     <thead >
                         <tr>
@@ -46,7 +46,7 @@ export class TbUsuarios extends Creator{
         const btUsuario=this.querySelector('#btusuario');
         const btChave=this.querySelector('#btchave');
        
-
+        
 
         radio.forEach((f)=>{
             this.value=f.value;

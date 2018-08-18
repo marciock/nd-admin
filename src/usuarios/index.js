@@ -21,6 +21,11 @@ export class Usuarios extends Creator{
         )
     }
     callBack(){
+        const tb=this.querySelector('tb-usuarios');
+
+        this.setState('envia',()=>{
+            return tb.value;
+        })
        
     }
 }

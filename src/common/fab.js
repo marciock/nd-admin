@@ -1,6 +1,6 @@
 import {Creator} from '../../dist/nerdcreator';
 import {MFab,MFabItem, InitFab} from '../../components/m-fabs';
-import {NdLink} from '../../dist/nerdrouter';
+import {NdLink,NdClick} from '../../dist/nerdrouter';
 
 export class Fab extends Creator{
 
@@ -13,9 +13,13 @@ export class Fab extends Creator{
                     <nd-link url="#/add" component="${this.getProps('add')}">
                       <m-fab-item color="green" url="#/add">add</m-fab-item>
                     </nd-link>
-                    <m-fab-item color="orange" url="#/edit">edit</m-fab-item>
+                    <nd-click function="envia">
+                        <nd-link url="#/" component="nd-home">
+                            <m-fab-item color="orange" url="#/edit" id="edit">edit</m-fab-item>
+                        </nd-link>
+                    </nd-click>
                     <nd-link url="#/" component="nd-home">
-                    <m-fab-item color="purple" url="#/">home</m-fab-item>
+                     <m-fab-item color="purple" url="#/">home</m-fab-item>
                     </nd-link>
                 </m-fab>
 
@@ -25,8 +29,11 @@ export class Fab extends Creator{
     }
     callBack(){
         const fab=this.querySelector('#fab');
+        
        
         let init=new InitFab(fab);
+
+        
         
 
     }

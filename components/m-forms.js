@@ -47,6 +47,11 @@ export class MInput extends Generator{
         mdiv.value=this.getProps('value');
         let myInput=this.querySelector('input');
 
+        if(this.getProps('edit') !==null){
+            myInput.value=this.getProps('edit');
+            this.value=myInput.value;
+        }
+
         myInput.addEventListener('change',()=>{
             this.value=myInput.value;
         })
@@ -91,6 +96,11 @@ export class MSelect extends Generator{
 
         div.value=this.getProps('value');
         
+
+        if(this.getProps('edit') !==null){
+            mselect.value=this.getProps('edit');
+            this.value=mselect.value;
+        }
         mselect.addEventListener('change',()=>{
             let x=mselect.options.selectedIndex;
             let val=mselect.options.item(x).value;
@@ -107,7 +117,7 @@ export class MRadio extends Generator{
     create(){
 
         const radio=document.createElement('input');
-        const label=document.createElement('labe');
+        const label=document.createElement('label');
         const span=document.createElement('span');
 
         const content=this.innerHTML;
@@ -166,7 +176,7 @@ export class MArea extends Generator{
         }
 
         area.classList.add('materialize-textarea');
-        area.value=this.innerHTML;
+       // area.value=this.innerHTML;
         this.innerHTML=null;
         
 
@@ -177,6 +187,12 @@ export class MArea extends Generator{
         let mdiv=this.querySelector('div');
         mdiv.value=this.getProps('value');
         let myInput=this.querySelector('textarea');
+
+
+        if(this.getProps('edit') !==null){
+            myInput.value=this.getProps('edit');
+            this.value=myInput.value;
+        }
 
         myInput.addEventListener('change',()=>{
             this.value=myInput.value;
@@ -232,6 +248,12 @@ export class MFile extends Generator{
         mdiv.value=this.getProps('value');
         let myInput=this.querySelector('input');
 
+
+        if(this.getProps('edit') !==null){
+            myInput.value=this.getProps('edit');
+            this.value=myInput.value;
+        }
+
         myInput.addEventListener('change',()=>{
             this.value=myInput.files[0];
         })
@@ -239,3 +261,46 @@ export class MFile extends Generator{
     }
 }
 customElements.define('m-file',MFile);
+
+export class MCheckBox extends Generator{
+
+    create(){
+        const label=document.createElement('label');
+        const input=document.createElement('input');
+        const span =document.createElement('span');
+
+        const type=this.getProps('type');
+
+        const checked=this.getProps('checked');
+
+
+        if(type !==null){
+            input.classList.add(type);
+        }
+        if(checked !==null){
+            input.setAttribute('checked',checked);
+        }
+
+        input.type='checkbox';
+
+        span.innerHTML=this.innerHTML;
+        this.innerHTML=null;
+        label.appendChild(input);
+        label.appendChild(span);
+
+        this.appendChild(label);
+
+        let myInput=this.querySelector('input');
+        let myLabel=this.querySelector('label');
+        myLabel.value=this.getProps('value');
+
+        if(this.getProps('edit') !==null){
+            myInput.value=this.getProps('edit');
+            this.value=myInput.value;
+        }
+        myInput.addEventListener('click',()=>{
+            this.value=myInput.value;
+        })
+    }
+}
+customElements.define('m-checkbox',MCheckBox);

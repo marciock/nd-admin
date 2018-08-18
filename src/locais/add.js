@@ -1,5 +1,5 @@
 import {Creator} from '../../dist/nerdcreator';
-import {NdPost} from '../../dist/nerdhttp';
+import {NdPost,NdFormData} from '../../dist/nerdhttp';
 import {MInput} from '../../components/m-forms';
 import {MRow} from '../../components/m-row';
 import {FabForm} from '../common/fab-form';
@@ -23,23 +23,25 @@ export class AddLocais extends Creator{
     }
     callBack(){
         const save=this.querySelector('#save');
-        const setor=this.querySelector('#cidade');
         
+       
+        const db=[
+            {
+                id:'cidade',
+                name:'cidade'
+            },
+            
+        ]
         
-
-
-
-        const formdata=new FormData();
-
        
 
         save.addEventListener('click',()=>{
-            formdata.append('cidade',cidade.value);
+            const data=new NdFormData();
+            const mydata=data.push(db);
           
-            
-            
           
-            const ndpost=new NdPost('http://localhost/ggnomotor/modules/local/services/Insert.php',formdata);
+          
+            const ndpost=new NdPost('http://localhost/ggnomotor/modules/local/services/Insert.php',mydata);
             ndpost.show();
             
         })

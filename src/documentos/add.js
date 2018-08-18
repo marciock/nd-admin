@@ -1,5 +1,5 @@
 import {Creator} from '../../dist/nerdcreator';
-import {NdPost} from '../../dist/nerdhttp';
+import {NdPost,NdFormData} from '../../dist/nerdhttp';
 
 import {MInput,MArea,MFile} from '../../components/m-forms';
 import {MRow} from '../../components/m-row';
@@ -19,9 +19,7 @@ export class AddDocumentos extends Creator{
             <m-row>
                 <m-input col="s8" id="titulo">Título</m-input>
             </m-row>
-            <m-row>
-                <select-setor id="setor"></select-setor>
-            </m-row>
+          
             <m-row>
                 <select-tipo id="tipo"></select-tipo>
             </m-row>
@@ -42,26 +40,40 @@ export class AddDocumentos extends Creator{
     callBack(){
 
         const save=this.querySelector('#save');
-        const titulo=this.querySelector('#titulo');
-        const descricao=this.querySelector('#descricao');
-        const setor=this.querySelector('#setor');
-        const tipo=this.querySelector('#tipo');
-        const arquivo=this.querySelector('#arquivo');
+        
 
        
-
-        const formdata=new FormData();
+        const db=[
+            {
+                id:'titulo',
+                name:'titulo'
+            },
+            {
+                id:'tipo',
+                name:'tipo'
+            },
+            {
+                id:'descricao',
+                name:'descricao'
+            },
+            {
+                id:'arquivo',
+                name:'arquivo'
+            }
+        ]
+        
 
        
 
         save.addEventListener('click',()=>{
-            formdata.append('titulo',titulo.value);
-            formdata.append('descricao',descricao.value);
-            formdata.append('id_setor',setor.value);
-            formdata.append('id_tipo',tipo.value);
-            formdata.append('arquivo',arquivo.value);
-            const ndpost=new NdPost('http://localhost/ggnomotor/modules/documentos/services/Insert.php',formdata);
+            const data=new NdFormData();
+
+
+            const mydata=data.push(db);
+            const ndpost=new NdPost('http://localhost/ggnomotor/modules/documentos/services/Insert.php',mydata);
             ndpost.show();
+            
+            alert('Salvo com sucesso');
             
         })
     }

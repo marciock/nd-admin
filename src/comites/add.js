@@ -1,5 +1,5 @@
 import {Creator} from '../../dist/nerdcreator';
-import {NdPost} from '../../dist/nerdhttp';
+import {NdPost,NdFormData} from '../../dist/nerdhttp';
 import {MInput} from '../../components/m-forms';
 import {MRow} from '../../components/m-row';
 import {FabForm} from '../common/fab-form';
@@ -23,27 +23,30 @@ export class AddComites extends Creator{
     }
     callBack(){
         const save=this.querySelector('#save');
-        const setor=this.querySelector('#comite');
+      
+        const db=[
+            {
+                id:'comite',
+                name:'comite'
+            },
+            
+        ]
         
-        
-
-
-
-        const formdata=new FormData();
-
-       
 
         save.addEventListener('click',()=>{
-            formdata.append('comite',comtie.value);
-          
+
+            const data=new NdFormData();
+            const mydata=data.push(db);
             
-            
-          
-            const ndpost=new NdPost('http://localhost/ggnomotor/modules/comites/services/Insert.php',formdata);
+            const ndpost=new NdPost('http://localhost/ggnomotor/modules/comites/services/Insert.php',mydata);
             ndpost.show();
             
         })
+
+       
     }
+
+    
 
 }
 customElements.define('add-comites',AddComites);

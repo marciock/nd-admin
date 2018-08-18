@@ -1,5 +1,5 @@
 import {Creator} from '../../dist/nerdcreator';
-import {NdPost,NdFormData} from '../../dist/nerdhttp';
+import {NdPost,NdFormData,NdGet} from '../../dist/nerdhttp';
 
 
 import {MRow} from '../../components/m-row';
@@ -12,16 +12,18 @@ import CheckIcons from '../common/check-icons';
 
 
 
-export class AddUsuarios extends Creator{
+export class EditUsuarios extends Creator{
 
     render(){
+
+        
 
 
         return(
             `
             <div>
             <m-row>
-                <m-header h="3">Adicionar Usuário</m-header>
+                <m-header h="3">Atualizar Usuário</m-header>
             </m-row>
             <m-row>
                 <m-input col="s8" id="chave">Chave</m-input>
@@ -52,7 +54,7 @@ export class AddUsuarios extends Creator{
 
        
 
-      
+        
 
 
         save.addEventListener('click',()=>{
