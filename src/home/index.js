@@ -12,7 +12,7 @@ export class Home extends Creator{
    render(){
     const nds=new NdSession();
     const userId=nds.get('userID');
-    const ndGet=new NdGet(`http://localhost/ggnomotor/modules/privilegios/services/Lista.php?id=${userId}`);
+    const ndGet=new NdGet(`${HOST}ggnomotor/modules/privilegios/services/Lista.php?id=${userId}`);
 
     const db=ndGet.show();
     const menuDB=new NdOrderBind(db);

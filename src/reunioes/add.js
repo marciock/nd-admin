@@ -8,6 +8,7 @@ import {MHeader} from '../../components/m-header';
 import SelectComite from '../common/select-comite';
 import SelectLocal from '../common/select-local';
 
+import {PathName} from '../common/pathname';
 
 export class AddReunioes extends Creator{
 
@@ -98,8 +99,12 @@ export class AddReunioes extends Creator{
 
             const mydata=data.push(db);
 
-            const ndpost=new NdPost('http://localhost/ggnomotor/modules/reunioes/services/Insert.php',mydata);
+            const ndpost=new NdPost(HOST+'ggnomotor/modules/reunioes/services/Insert.php',mydata);
             ndpost.show();
+
+            alert('Salvo com Sucesso !');
+
+            const path=new PathName('#/reunioes','nd-reunioes');
             
         })
     }

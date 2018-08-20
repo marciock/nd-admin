@@ -10,7 +10,7 @@ import {MCardPanel} from '../../components/m-cards';
 import FabForm from '../common/fab-form';
 import CheckIcons from '../common/check-icons';
 
-
+import {PathName} from '../common/pathname';
 
 export class AddUsuarios extends Creator{
 
@@ -92,13 +92,14 @@ export class AddUsuarios extends Creator{
 
            
           
-            const ndpost=new NdPost('http://localhost/ggnomotor/modules/usuarios/services/Insert.php',mydata);
+            const ndpost=new NdPost(HOST+'ggnomotor/modules/usuarios/services/Insert.php',mydata);
             ndpost.show();
 
           
             alert('Salvo com sucesso');
            
   
+            const path=new PathName('#/usuarios','nd-usuarios');
           //  console.log(url);
   
             

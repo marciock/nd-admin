@@ -5,7 +5,7 @@ import {MRadio} from '../../components/m-forms';
 export class TbComites extends Creator{
 
     render(){
-        const dbComite=new NdGet('http://localhost/ggnomotor/modules/comites/services/Lista.php');
+        const dbComite=new NdGet(HOST+'ggnomotor/modules/comites/services/Lista.php');
         const showComite=dbComite.show();
         console.log(showComite);
         return(

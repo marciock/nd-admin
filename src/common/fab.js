@@ -14,7 +14,7 @@ export class Fab extends Creator{
                       <m-fab-item color="green" url="#/add">add</m-fab-item>
                     </nd-link>
                     <nd-click function="envia">
-                        <nd-link url="#/" component="nd-home">
+                        <nd-link url="#/edit" component="${this.getProps('edit-component')}">
                             <m-fab-item color="orange" url="#/edit" id="edit">edit</m-fab-item>
                         </nd-link>
                     </nd-click>

@@ -60,7 +60,7 @@ button.addEventListener('click',()=>{
 
     console.log(db.get('senha'))
 
-    const ndGet=new NdGet(`http://localhost/ggnomotor/modules/usuarios/services/Login.php?id=${db.get('login')}&ps=${db.get('senha')}`);
+    const ndGet=new NdGet(`${HOST}ggnomotor/modules/usuarios/services/Login.php?id=${db.get('login')}&ps=${db.get('senha')}`);
 
     const result=ndGet.show();
 

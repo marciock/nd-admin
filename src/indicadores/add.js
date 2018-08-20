@@ -6,6 +6,7 @@ import {MRow} from '../../components/m-row';
 import {FabForm} from '../common/fab-form';
 import {MHeader} from '../../components/m-header';
 
+import {PathName} from '../common/pathname';
 
 export class AddIndicadores extends Creator{
 
@@ -58,9 +59,13 @@ export class AddIndicadores extends Creator{
             formdata.append('mes',mes.value);
             formdata.append('ano',ano.value);
             formdata.append('arquivo',arquivo.value);
-            const ndpost=new NdPost('http://localhost/ggnomotor/modules/indicadores/services/Insert.php',formdata);
+            const ndpost=new NdPost(HOST+'ggnomotor/modules/indicadores/services/Insert.php',formdata);
             ndpost.show();
             
+            alert('Salvo com Sucesso!');
+
+            const path=new PathName('#/indicadores','nd-indicadores');
+
         })
     }
 

@@ -5,8 +5,8 @@ import {MInput,MArea,MFile} from '../../components/m-forms';
 import {MRow} from '../../components/m-row';
 import {FabForm} from '../common/fab-form';
 import {MHeader} from '../../components/m-header';
+import {PathName} from '../common/pathname';
 
-import SelectLocal from '../common/select-local';
 
 
 export class AddAgenda extends Creator{
@@ -95,10 +95,10 @@ export class AddAgenda extends Creator{
             const mydata=data.push(db);
 
           
-            const ndpost=new NdPost('http://localhost/ggnomotor/modules/agenda/services/Insert.php',mydata);
+            const ndpost=new NdPost(HOST+'ggnomotor/modules/agenda/services/Insert.php',mydata);
            ndpost.show();
-
-                console.log('foi');
+           alert('Salvo com sucesso');
+           const path=new PathName('#agenda','nd-agenda');
 
           /*  alert('Salvo com sucesso');
             const host=window.location.pathname;

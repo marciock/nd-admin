@@ -5,7 +5,7 @@ import {MRadio} from '../../components/m-forms';
 export class TbSetores extends Creator{
 
     render(){
-        const db=new NdGet('http://localhost/ggnomotor/modules/setor/services/Lista.php');
+        const db=new NdGet(HOST+'ggnomotor/modules/setor/services/Lista.php');
         const show=db.show();
         
         return(

@@ -7,6 +7,8 @@ import {FabForm} from '../common/fab-form';
 import {MHeader} from '../../components/m-header';
 import SelectUnidade from '../common/select-unidade';
 
+import {PathName} from '../common/pathname';
+
 export class AddNoticias extends Creator{
 
     render(){
@@ -62,8 +64,12 @@ export class AddNoticias extends Creator{
             formdata.append('descricao',descricao.value);
             formdata.append('data',data.value);
             formdata.append('imagem',imagem.value);
-            const ndpost=new NdPost('http://localhost/ggnomotor/modules/noticias/services/Insert.php',formdata);
+            const ndpost=new NdPost(HOST+'ggnomotor/modules/noticias/services/Insert.php',formdata);
             ndpost.show();
+
+            alert('Salvo com Sucesso !');
+
+            const path=new PathName('#/noticias','nd-noticias');
             
         })
     }

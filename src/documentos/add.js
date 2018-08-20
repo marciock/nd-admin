@@ -9,6 +9,8 @@ import {MHeader} from '../../components/m-header';
 import SelectTipo from '../common/select-tipo';
 import SelectSetor from '../common/select-setor';
 
+import {PathName} from '../common/pathname';
+
 export class AddDocumentos extends Creator{
 
     render(){
@@ -70,10 +72,12 @@ export class AddDocumentos extends Creator{
 
 
             const mydata=data.push(db);
-            const ndpost=new NdPost('http://localhost/ggnomotor/modules/documentos/services/Insert.php',mydata);
+            const ndpost=new NdPost(HOST+'ggnomotor/modules/documentos/services/Insert.php',mydata);
             ndpost.show();
             
             alert('Salvo com sucesso');
+            const path=new PathName('#/documentos','nd-documentos');
+
             
         })
     }

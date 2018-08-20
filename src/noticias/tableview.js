@@ -5,7 +5,7 @@ import {MRadio} from '../../components/m-forms';
 export class TbNoticias extends Creator{
 
     render(){
-        const dbNoticias=new NdGet('http://localhost/ggnomotor/modules/noticias/services/Lista.php');
+        const dbNoticias=new NdGet(HOST+'ggnomotor/modules/noticias/services/Lista.php');
         const showNoticias=dbNoticias.show();
         
         return(

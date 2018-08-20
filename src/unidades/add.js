@@ -5,6 +5,8 @@ import {MRow} from '../../components/m-row';
 import {FabForm} from '../common/fab-form';
 import {MHeader} from '../../components/m-header';
 
+import {PathName} from '../common/pathname';
+
 export class AddUnidades extends Creator{
 
     render(){
@@ -40,8 +42,11 @@ export class AddUnidades extends Creator{
 
             const formdata=new NdFormData(db)
                    
-            const ndpost=new NdPost('http://localhost/ggnomotor/modules/unidades/services/Insert.php',formdata);
+            const ndpost=new NdPost(HOST+'ggnomotor/modules/unidades/services/Insert.php',formdata);
             ndpost.show();
+            alert('Salvo com Sucesso !');
+
+            const path=new PathName('#/unidades','nd-unidades');
 
             
         })

@@ -5,6 +5,8 @@ import {MRow} from '../../components/m-row';
 import {FabForm} from '../common/fab-form';
 import {MHeader} from '../../components/m-header';
 
+import {PathName} from '../common/pathname';
+
 export class AddSetores extends Creator{
 
     render(){
@@ -39,8 +41,11 @@ export class AddSetores extends Creator{
             
             
           
-            const ndpost=new NdPost('http://localhost/ggnomotor/modules/setor/services/Insert.php',formdata);
+            const ndpost=new NdPost(HOST+'ggnomotor/modules/setor/services/Insert.php',formdata);
             ndpost.show();
+
+            alert('Salvo com Sucesso !');
+            const path=new PathName('#setores','nd-setores');
             
         })
     }

@@ -6,7 +6,7 @@ import {NdGet} from '../../dist/nerdhttp';
 
     constructor() {
 
-        this.data=new NdGet('http://localhost/ggnomotor/modules/usuarios/services/Lista.php');
+        this.data=new NdGet(HOST+'ggnomotor/modules/usuarios/services/Lista.php');
         
         return this.data.show();
        

@@ -1,6 +1,6 @@
 import '@webcomponents/custom-elements';
 
-
+import {NdSession} from '../dist/nerdhttp';
 import {Creator} from '../dist/nerdcreator';
 import {MNavBar,MNavBarOpt} from '../components/m-navbar';
 import {MContainer} from '../components/m-container';
@@ -9,6 +9,7 @@ import {NdLink,NdView,NerdRouter} from '../dist/nerdrouter';
 
 import Login from './login/index';
 import Home from './home/index';
+
 import Usuarios from './usuarios/index';
 import AddUsuarios from './usuarios/add';
 
@@ -29,6 +30,7 @@ import AddReunioes from './reunioes/add';
 
 import Agenda from './agenda/index';
 import AddAgenda from './agenda/add';
+import EditAgenda from './agenda/edit';
 
 import Unidades from './unidades/index';
 import AddUnidades from './unidades/add';
@@ -74,6 +76,8 @@ export class Apps extends Creator{
     const img=this.querySelector('img');
 
     img.style.marginLeft='2em';
+
+   
   }
  
 

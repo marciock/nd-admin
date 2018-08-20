@@ -5,6 +5,8 @@ import {MRow} from '../../components/m-row';
 import {FabForm} from '../common/fab-form';
 import {MHeader} from '../../components/m-header';
 
+import {PathName} from '../common/pathname';
+
 export class AddComites extends Creator{
 
     render(){
@@ -38,9 +40,12 @@ export class AddComites extends Creator{
             const data=new NdFormData();
             const mydata=data.push(db);
             
-            const ndpost=new NdPost('http://localhost/ggnomotor/modules/comites/services/Insert.php',mydata);
+            const ndpost=new NdPost(HOST+'ggnomotor/modules/comites/services/Insert.php',mydata);
             ndpost.show();
+
+            alert('Salvo com sucesso');
             
+            const path=new PathName('#/comites','nd-comites');
         })
 
        

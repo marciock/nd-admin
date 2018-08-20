@@ -5,7 +5,7 @@ import {MRadio} from '../../components/m-forms';
 export class TbIndicadores extends Creator{
 
     render(){
-        const dbIndicadores=new NdGet('http://localhost/ggnomotor/modules/indicadores/services/Lista.php');
+        const dbIndicadores=new NdGet(HOST+'ggnomotor/modules/indicadores/services/Lista.php');
         const showIndicadores=dbIndicadores.show();
         
         return(

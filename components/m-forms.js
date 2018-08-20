@@ -131,9 +131,9 @@ export class MRadio extends Generator{
         radio.name=group;
       
 
-      this.addEventListener('click',()=>{
-        radio.checked=true;
-    })
+   //   this.addEventListener('click',()=>{
+     //   radio.checked=true;
+    //})
     
         
         label.appendChild(radio);
@@ -142,8 +142,26 @@ export class MRadio extends Generator{
         this.innerHTML=null;
         
         this.appendChild(label);
+
+       
+
         this.value=this.getProps('value');
-        
+
+        let myInput=this.querySelector('input');
+
+        if(this.getProps('edit') !==null){
+            myInput.value=this.getProps('edit');
+            this.value=myInput.value;
+        }
+
+       
+
+        myInput.addEventListener('click',()=>{
+            myInput.checked=true;
+            this.value=myInput.value;
+
+        })
+
        
         
     }

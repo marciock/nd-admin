@@ -1,13 +1,13 @@
 import {Creator} from '../../dist/nerdcreator';
 import {NdGet} from '../../dist/nerdhttp';
-import {MRadio} from '../../components/m-forms';
+
 
 export class TbAgenda extends Creator{
 
     render(){
-        const db=new NdGet('http://localhost/ggnomotor/modules/agenda/services/Lista.php');
+        const db=new NdGet(HOST+'ggnomotor/modules/agenda/services/Lista.php');
         const show=db.show();
-        console.log(show);
+       // console.log(show);
         return(
              `<div value=${this.getProps('value')}>
                 <table>
@@ -31,7 +31,7 @@ export class TbAgenda extends Creator{
                             
                             return(
                                 `<tr>
-                                    <td><m-radio  group="reunioes" value="${f.id_reunioes}">id</m-radio></td>
+                                    <td><p><label><input  type="radio"   value="${f.id_reunioes}" name="id_reunoes"/><span></span></label></p></td>
                                    
                                     <td>${f.data.split('-').reverse().join('/')}</td>
                                     <td>${f.assunto}</td>
@@ -56,12 +56,17 @@ export class TbAgenda extends Creator{
         )
     }
     callBack(){
-        const radio=this.querySelectorAll('m-radio');
-
-        radio.forEach((f)=>{
-            this.value=f.value;
-        })
-
+        const input=this.querySelectorAll('input');
+ 
+ 
+      
+         input.forEach((f)=>{
+           f.addEventListener('click',()=>{
+            
+             this.value=f.value
+             console.log(this.value);
+           })
+         })
     }
 
 }
