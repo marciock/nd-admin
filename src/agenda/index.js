@@ -11,7 +11,7 @@ export class Agenda extends Creator{
             `<div>
                 <m-header h="2">Agenda GGNO</m-header>
                 <tb-agenda id="tabela"></tb-agenda>
-                <nd-fab add="add-agenda" edit-component="edit-agenda"></nd-fab>
+                <nd-fab add="add-agenda" edit-component="edit-agenda" id="fab"></nd-fab>
 
             </div>
 
@@ -22,14 +22,21 @@ export class Agenda extends Creator{
 
         const tabela=this.querySelector('#tabela');
         const edit=document.getElementById('edit');
+      //  const fab=this.querySelector('#fab');
 
-        edit.addEventListener('click',()=>{
-           this.setState('envia',()=>{
-               return tabela.value;
-           })
-        })
-
-        
+       
+            edit.addEventListener('click',()=>{
+             
+                this.setState('envia',()=>{
+                    return tabela.value;
+                
+               });
+              
+                
+                
+             })
+       
+   
        
     }
 }

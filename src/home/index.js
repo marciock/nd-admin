@@ -33,7 +33,13 @@ export class Home extends Creator{
         ` <m-row>
                 ${
                     menu.map((f)=>{
-                        return `<nd-icon title=${f.title} src=${f.icon} url="#${f.url}" component="${f.component}"></nd-icon>`
+                        let ativ=f.ativo;
+                        if(ativ !== '0'){
+                            return `<nd-icon title=${f.title} src=${f.icon} url="${f.url}" component="${f.component}"></nd-icon>`
+                        }else{
+                            return `<nd-icon title=${f.title} src=${f.disabled} url="#/" component="nd-home"></nd-icon>`
+                        }
+                       
                         
 
                     }).join('')

@@ -10,8 +10,8 @@ export class Documentos extends Creator{
         return(
             `<div>
                 <m-header h="2">Documentos</m-header>
-                <tb-documentos></tb-documentos>
-                <nd-fab add="add-documentos"></nd-fab>
+                <tb-documentos id="tabela"></tb-documentos>
+                <nd-fab add="add-documentos" edit-component="edit-documentos"></nd-fab>
 
             </div>
 
@@ -19,7 +19,14 @@ export class Documentos extends Creator{
         )
     }
     callBack(){
-        
+        const tabela=this.querySelector('#tabela');
+        const edit=document.getElementById('edit');
+
+        edit.addEventListener('click',()=>{
+           this.setState('envia',()=>{
+               return tabela.value;
+           })
+        })
        
     }
 }

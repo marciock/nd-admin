@@ -23,7 +23,7 @@ export class AddDocumentos extends Creator{
             </m-row>
           
             <m-row>
-                <select-tipo id="tipo"></select-tipo>
+                <select-tipo id="tipo" content="Escolha o tipo do arquivo"></select-tipo>
             </m-row>
             <m-row>
                 <m-area col="s8" label="descricao" id="descricao"></m-area>

@@ -1,5 +1,5 @@
 import {Creator} from '../../dist/nerdcreator';
-import {NdPost} from '../../dist/nerdhttp';
+import {NdPost,NdFormData} from '../../dist/nerdhttp';
 
 import {MInput,MArea,MFile} from '../../components/m-forms';
 import {MRow} from '../../components/m-row';
@@ -41,25 +41,42 @@ export class AddIndicadores extends Creator{
     callBack(){
 
         const save=this.querySelector('#save');
-        const titulo=this.querySelector('#titulo');
-        const descricao=this.querySelector('#descricao');
-        const mes=this.querySelector('#mes');
-        const ano=this.querySelector('#ano');
-        const arquivo=this.querySelector('#arquivo');
+        
 
+        const db=[
+            {
+                id:'titulo',
+                name:'titulo'
+            },
+            {
+                id:'descricao',
+                name:'descricao'
+            },
+            {
+                id:'mes',
+                name:'mes'
+            },
+            {
+                id:'ano',
+                name:'ano'
+            },
+            {
+                id:'arquivo',
+                name:'arquivo'
+            }
+            
+        ]
        
 
-        const formdata=new FormData();
-
+       
        
 
         save.addEventListener('click',()=>{
-            formdata.append('titulo',titulo.value);
-            formdata.append('descricao',descricao.value);
-            formdata.append('mes',mes.value);
-            formdata.append('ano',ano.value);
-            formdata.append('arquivo',arquivo.value);
-            const ndpost=new NdPost(HOST+'ggnomotor/modules/indicadores/services/Insert.php',formdata);
+            const data=new NdFormData();
+
+
+            const mydata=data.push(db);
+            const ndpost=new NdPost(HOST+'ggnomotor/modules/indicadores/services/Insert.php',mydata);
             ndpost.show();
             
             alert('Salvo com Sucesso!');

@@ -12,11 +12,19 @@ import {PathName} from '../common/pathname';
 export class EditAgenda extends Creator{
 
     render(){
-       const id=this.state.envia();
-       const endereco=`${HOST}ggnomotor/modules/agenda/services/Search.php?id=${id}`;
+    
+        
+        
+        const id=this.state.envia();
+        
+              
+
+         const endereco=`${HOST}ggnomotor/modules/agenda/services/Search.php?id=${id}`;
+
+         console.log(endereco);
           const ndGet=new NdGet(endereco);
           const data=ndGet.show();
-
+       
        
         return(
             `
@@ -61,6 +69,8 @@ export class EditAgenda extends Creator{
 
             `
         )
+            
+      
     }
     callBack(){
 
@@ -124,7 +134,7 @@ export class EditAgenda extends Creator{
            ndpost.show();
 
            const path=new PathName('#agenda','nd-agenda');
-               
+           alert('Atualizado com sucesso');
           /*  alert('Salvo com sucesso');
             const host=window.location.pathname;
             const url='http://localhost'+host+'#/usuarios';

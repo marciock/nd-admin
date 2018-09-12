@@ -1,6 +1,6 @@
 import {Creator} from '../../dist/nerdcreator';
 import {NdGet} from '../../dist/nerdhttp';
-import {MRadio} from '../../components/m-forms';
+
 
 export class TbDocumentos extends Creator{
 
@@ -31,7 +31,7 @@ export class TbDocumentos extends Creator{
                                 
                                 return(
                                     `<tr>
-                                        <td><m-radio  group="documentos" value="${f.id_documentos}">id</m-radio></td>
+                                        <td><p><label><input  type="radio"   value="${f.id_documentos}" name="id_reunoes"/><span></span></label></p></td>
                                         <td>${f.titulo}</td>
                                         <td>${f.data.split('-').reverse().join('/')}</td>
                                        
@@ -58,10 +58,16 @@ export class TbDocumentos extends Creator{
         )
     }
     callBack(){
-        const radio=this.querySelectorAll('m-radio');
-
-        radio.forEach((f)=>{
-            this.value=f.value;
+        const input=this.querySelectorAll('input');
+ 
+ 
+      
+        input.forEach((f)=>{
+          f.addEventListener('click',()=>{
+           
+            this.value=f.value
+            console.log(this.value);
+          })
         })
 
     }

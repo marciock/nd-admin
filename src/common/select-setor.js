@@ -10,7 +10,7 @@ export class SelectSetor extends Creator{
         return(
             `
                 <m-select col="s8">
-                <option disabled selected>Setor</option>
+                <option disabled selected>${this.getProps('content')}</option>
                     ${
                         db.map((f)=>{
                         return `<option value=${f.id_setor}>${f.setor}</option>`
@@ -23,6 +23,26 @@ export class SelectSetor extends Creator{
     callBack(){
 
         const select=this.querySelector('m-select');
+
+        const edit=this.querySelector('[disabled]');
+
+        const content=this.getProps('content');
+
+        edit.innerHTML=this.getProps('content');
+
+
+
+        if(content !==null){
+            edit.innerHTML=content;
+        }else{
+            edit.innerHTML="Escolha um Setor";
+        }
+
+        
+        if(edit !==null){
+            this.value=this.getProps('edit');
+            edit.removeAttribute('disabled');
+        }
 
         this.addEventListener('change',()=>{
             this.value=select.value;

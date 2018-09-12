@@ -12,8 +12,8 @@ export class Usuarios extends Creator{
         return(
             `<div>
                 <m-header h="2">Usuários</m-header>
-                <tb-usuarios></tb-usuarios>
-                <nd-fab add="add-usuarios" ></nd-fab>
+                <tb-usuarios id="tabela"></tb-usuarios>
+                <nd-fab add="add-usuarios" edit-component="edit-usuarios"></nd-fab>
 
             </div>
 
@@ -21,10 +21,13 @@ export class Usuarios extends Creator{
         )
     }
     callBack(){
-        const tb=this.querySelector('tb-usuarios');
+        const tabela=this.querySelector('#tabela');
+        const edit=document.getElementById('edit');
 
-        this.setState('envia',()=>{
-            return tb.value;
+        edit.addEventListener('click',()=>{
+           this.setState('envia',()=>{
+               return tabela.value;
+           })
         })
        
     }

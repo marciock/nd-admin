@@ -10,8 +10,8 @@ export class Indicadores extends Creator{
         return(
             `<div>
                 <m-header h="2">Indicadores</m-header>
-                <tb-indicadores></tb-indicadores>
-                <nd-fab add="add-indicadores"></nd-fab>
+                <tb-indicadores id="tabela"></tb-indicadores>
+                <nd-fab add="add-indicadores" edit-component="edit-indicadores"></nd-fab>
 
             </div>
 
@@ -19,6 +19,14 @@ export class Indicadores extends Creator{
         )
     }
     callBack(){
+        const tabela=this.querySelector('#tabela');
+        const edit=document.getElementById('edit');
+
+        edit.addEventListener('click',()=>{
+           this.setState('envia',()=>{
+               return tabela.value;
+           })
+        })
         
        
     }

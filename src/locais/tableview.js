@@ -1,6 +1,6 @@
 import {Creator} from '../../dist/nerdcreator';
 import {NdGet} from '../../dist/nerdhttp';
-import {MRadio} from '../../components/m-forms';
+
 
 export class TbLocais extends Creator{
 

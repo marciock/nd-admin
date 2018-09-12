@@ -57,12 +57,14 @@ export class TbAgenda extends Creator{
     }
     callBack(){
         const input=this.querySelectorAll('input');
- 
- 
+        
+
+       
       
          input.forEach((f)=>{
            f.addEventListener('click',()=>{
-            
+
+           
              this.value=f.value
              console.log(this.value);
            })

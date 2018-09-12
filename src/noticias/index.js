@@ -9,9 +9,9 @@ export class Noticias extends Creator{
     render(){
         return(
             `<div>
-                <m-header h="2">Notícias</m-header>
-                <tb-noticias></tb-noticias>
-                <nd-fab add="add-noticias"></nd-fab>
+                <m-header h="2">Noticias</m-header>
+                <tb-noticias id="tabela"></tb-noticias>
+                <nd-fab add="add-noticias" edit-component="edit-noticias"></nd-fab>
 
             </div>
 
@@ -19,7 +19,14 @@ export class Noticias extends Creator{
         )
     }
     callBack(){
-        
+        const tabela=this.querySelector('#tabela');
+        const edit=document.getElementById('edit');
+
+        edit.addEventListener('click',()=>{
+           this.setState('envia',()=>{
+               return tabela.value;
+           })
+        })
        
     }
 }

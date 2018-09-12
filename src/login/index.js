@@ -1,5 +1,6 @@
 import {Creator} from '../../dist/nerdcreator';
 import {NdGet,NdSession,NdFormData} from '../../dist/nerdhttp';
+import {NdLink} from '../../dist/nerdrouter';
 
 import {MContainer} from  '../../components/m-container';
 import {MInput} from '../../components/m-forms';
@@ -16,18 +17,27 @@ export class Login extends Creator{
             `
             <m-container>
                     <div id="margin">
-                    
+                       
                             <m-row>
-                            <m-input id="login" col="s12" type="text">Login</m-input>
+                             <m-input id="login" col="s12" type="text">Login</m-input>
                             </m-row>
                             <m-row>
-                            <m-input id="senha" col="s12" type="password">Senha</m-input>
+                             <m-input id="senha" col="s12" type="password">Senha</m-input>
                             </m-row>
                             <m-row>
-                                <m-col s="6"></m-col>
-                                <m-col s="6"><button class="btn waves-effect waves-ligh green btn-large right" type="button" id="enviar">Entrar</button></m-col>
+                                <div class="col s12">
+                                    <div class="center-align">
+                                        <h5 class="green-text">Se ainda não é cadastrado</h5>
+                                        <nd-link url="#/add" component="add-usuarios"><h4 class="green-text">Cadastre-se</h4></nd-link>
+                                    <div>
+                                                
+                               
+                               
+                                     <button class="btn waves-effect waves-ligh green btn-large right" type="button" id="enviar">Entrar</button>
+                                </div>
+                        
+                             </m-row>
                             
-                            </m-row>
                        
                     </div>
             </m-container>
@@ -58,7 +68,7 @@ button.addEventListener('click',()=>{
 
    let db=ndData.push(data);
 
-    console.log(db.get('senha'))
+   
 
     const ndGet=new NdGet(`${HOST}ggnomotor/modules/usuarios/services/Login.php?id=${db.get('login')}&ps=${db.get('senha')}`);
 

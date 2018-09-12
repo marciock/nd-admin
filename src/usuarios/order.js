@@ -23,7 +23,7 @@ import {NdGet} from '../../dist/nerdhttp';
             let view= db.map((f)=>{
                  return(
                  `<tr>
-                 <td><m-radio  group="usuarios" value="${f.id_usuarios}"></m-radio></td>
+                 <td><p><label><input  type="radio"   value="${f.id_usuarios}" name="id_usuarios" /><span></span></label></p></td>
                  <td>${f.nome}</td>
                  <td>${f.chave}</td>
                  <td>${f.email}</td>
@@ -57,7 +57,7 @@ import {NdGet} from '../../dist/nerdhttp';
             let view= show.map((f)=>{
                 return(
                 `<tr>
-                <td><m-radio  group="usuarios" value="${f.id_usuarios}"></m-radio></td>
+                <td><p><label><input  type="radio"   value="${f.id_usuarios}" name="id_usuarios"/><span></span></label></p></td>
                 <td>${f.nome}</td>
                 <td>${f.chave}</td>
                 <td>${f.email}</td>

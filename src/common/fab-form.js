@@ -9,7 +9,7 @@ export class FabForm extends Creator{
             `<div>
                 <m-fab color="blue" icon="menu" id="fab">
                     
-                    <m-fab-item color="green" url="#/save" id="save">save</m-fab-item>
+                    <m-fab-item color="green"  id="save">save</m-fab-item>
                     
                     <nd-link url="${this.getProps('url-cancel')}" component="${this.getProps('component')}">
                       <m-fab-item color="red" url="${this.getProps('url-cancel')}">cancel</m-fab-item>

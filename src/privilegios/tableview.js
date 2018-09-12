@@ -5,7 +5,8 @@ import {MRow} from '../../components/m-row';
 export class TbPrivilegios extends Creator{
 
     render(){
-        const db=new NdGet('http://localhost/ggnomotor/modules/privilegios/services/Lista.php');
+        console.log(HOST+'/ggnomotor/modules/usuarios/services/Lista.php');
+        const db=new NdGet(HOST+'/ggnomotor/modules/usuarios/services/Lista.php');
         const show=db.show();
         
         return(
@@ -18,24 +19,27 @@ export class TbPrivilegios extends Creator{
                 <table>
                     <thead>
                         <tr>
-                           
-                            
-                            <th>Cadastros</th>
+                            <th>Selecione</th>
+                            <th>Nome</th>
+                            <th>Chave</th>
+                            <th>Email</th>
                             
                         </tr>
                     </thead>
                     <tbody>
                     ${
+                                                
                         show.map((f)=>{
-                            return(
-                                `<tr>
-                                   
-                                    <td></td>
-                                   
+                      
+                            return(`
+                                <tr>
+                                  <td><p><label><input  type="radio"   value="${f.id_usuarios}" name="id_usuarios" /><span></span></label></p></td>
+                                  <td>${f.nome}</td>
+                                  <td>${f.chave}</td>
+                                  <td>${f.email}</td>
                                 </tr>
-                                `
-                            )
-                        }).join('')
+                              `)
+                      }).join('')
                     }
                         
                     </tbody>
@@ -48,11 +52,18 @@ export class TbPrivilegios extends Creator{
         )
     }
     callBack(){
-        const radio=this.querySelectorAll('m-radio');
-
-        radio.forEach((f)=>{
-            this.value=f.value;
+        const input=this.querySelectorAll('input');
+ 
+ 
+      
+        input.forEach((f)=>{
+          f.addEventListener('click',()=>{
+           
+            this.value=f.value
+          //  console.log(this.value);
+          })
         })
+       
 
     }
 

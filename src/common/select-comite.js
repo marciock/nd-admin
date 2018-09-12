@@ -24,6 +24,18 @@ export class SelecComite extends Creator{
 
         const select=this.querySelector('m-select');
 
+        const edit=this.querySelector('[disabled]');
+
+        edit.innerHTML=this.getProps('content');
+        
+        if(edit !==null){
+            this.value=this.getProps('edit');
+            edit.removeAttribute('disabled');
+        }
+       
+
+       
+
         this.addEventListener('change',()=>{
             this.value=select.value;
             console.log(this.value );

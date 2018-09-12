@@ -1,6 +1,6 @@
 import {Creator} from '../../dist/nerdcreator';
 import {NdGet} from '../../dist/nerdhttp';
-import {MRadio} from '../../components/m-forms';
+
 
 export class TbIndicadores extends Creator{
 
@@ -29,7 +29,7 @@ export class TbIndicadores extends Creator{
                             
                             return(
                                 `<tr>
-                                    <td><m-radio  group="noticias" value="${f.id_indicadores}">id</m-radio></td>
+                                    <td><p><label><input  type="radio"   value="${f.id_indicadores}" name="id_indicadores"/><span></span></label></p></td>
                                     <td>${f.titulo}</td>
                                     <td>${f.descricao}</td>
                                     <td>${f.mes}/${f.ano}</td>
@@ -52,12 +52,17 @@ export class TbIndicadores extends Creator{
         )
     }
     callBack(){
-        const radio=this.querySelectorAll('m-radio');
-
-        radio.forEach((f)=>{
-            this.value=f.value;
+        const input=this.querySelectorAll('input');
+ 
+ 
+      
+        input.forEach((f)=>{
+          f.addEventListener('click',()=>{
+           
+            this.value=f.value
+            console.log(this.value);
+          })
         })
-
     }
 
 }

@@ -38,8 +38,11 @@ export class AddUsuarios extends Creator{
              <m-row>
              <m-input col="s8" id="email" type="email"  >Email</m-input>
             </m-row>
+            <m-row>
+             <m-area col="s8" id="descricao"  label="Descrição" ></m-area>
+            </m-row>
            
-            <fab-form url-cancel="#/usuarios" component="nd-usuarios"></fab-form>
+            <fab-form url-cancel="#/" component="nd-login"></fab-form>
             </div>
             `
         )
@@ -80,6 +83,10 @@ export class AddUsuarios extends Creator{
                 {
                     id:'email',
                     name:'email'
+                },
+                {
+                    id:'descricao',
+                    name:'descricao'
                 }
             ]
 
@@ -95,11 +102,11 @@ export class AddUsuarios extends Creator{
             const ndpost=new NdPost(HOST+'ggnomotor/modules/usuarios/services/Insert.php',mydata);
             ndpost.show();
 
-          
+            const path=new PathName('#/','nd-login');
             alert('Salvo com sucesso');
            
   
-            const path=new PathName('#/usuarios','nd-usuarios');
+           
           //  console.log(url);
   
             

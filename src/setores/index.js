@@ -10,8 +10,8 @@ export class Setores extends Creator{
         return(
             `<div>
                 <m-header h="2">Setores</m-header>
-                <tb-setores></tb-setores>
-                <nd-fab add="add-setores"></nd-fab>
+                <tb-setores id="tabela"></tb-setores>
+                <nd-fab add="add-setores" edit-component="edit-setores"></nd-fab>
 
             </div>
 
@@ -19,7 +19,14 @@ export class Setores extends Creator{
         )
     }
     callBack(){
-        
+        const tabela=this.querySelector('#tabela');
+        const edit=document.getElementById('edit');
+
+        edit.addEventListener('click',()=>{
+           this.setState('envia',()=>{
+               return tabela.value;
+           })
+        })
        
     }
 }

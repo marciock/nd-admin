@@ -10,8 +10,8 @@ export class Reunioes extends Creator{
         return(
             `<div>
                 <m-header h="2">Reuniões dos Comitês</m-header>
-                <tb-reunioes></tb-reunioes>
-                <nd-fab add="add-reunioes"></nd-fab>
+                <tb-reunioes id="tabela"></tb-reunioes>
+                <nd-fab add="add-reunioes" edit-component="edit-reunioes"></nd-fab>
 
             </div>
 
@@ -20,7 +20,14 @@ export class Reunioes extends Creator{
     }
     callBack(){
         
-       
+        const tabela=this.querySelector('#tabela');
+        const edit=document.getElementById('edit');
+
+        edit.addEventListener('click',()=>{
+           this.setState('envia',()=>{
+               return tabela.value;
+           })
+        })
     }
 }
 customElements.define('nd-reunioes',Reunioes);

@@ -10,8 +10,8 @@ export class Unidades extends Creator{
         return(
             `<div>
                 <m-header h="2">Unidades</m-header>
-                <tb-unidades></tb-unidades>
-                <nd-fab add="add-unidades"></nd-fab>
+                <tb-unidades id="tabela"></tb-unidades>
+                <nd-fab add="add-unidades" edit-component="edit-unidades"></nd-fab>
 
             </div>
 
@@ -19,7 +19,14 @@ export class Unidades extends Creator{
         )
     }
     callBack(){
-        
+        const tabela=this.querySelector('#tabela');
+        const edit=document.getElementById('edit');
+
+        edit.addEventListener('click',()=>{
+           this.setState('envia',()=>{
+               return tabela.value;
+           })
+        })
        
     }
 }

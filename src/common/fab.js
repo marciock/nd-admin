@@ -10,12 +10,12 @@ export class Fab extends Creator{
         return(
             `<div>
                 <m-fab color="blue" icon="menu" id="fab">
-                    <nd-link url="#/add" component="${this.getProps('add')}">
+                    <nd-link url="#/add" component="${this.getProps('add')}" id="id-add">
                       <m-fab-item color="green" url="#/add">add</m-fab-item>
                     </nd-link>
-                    <nd-click function="envia">
-                        <nd-link url="#/edit" component="${this.getProps('edit-component')}">
-                            <m-fab-item color="orange" url="#/edit" id="edit">edit</m-fab-item>
+                    <nd-click function="envia" >
+                        <nd-link url="#/edit" component="${this.getProps('edit-component')}" >
+                            <m-fab-item color="orange" url="#/edit" id="edit" >edit</m-fab-item>
                         </nd-link>
                     </nd-click>
                     <nd-link url="#/" component="nd-home">
